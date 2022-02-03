@@ -1,0 +1,8 @@
+<h1>Gyms</h1>
+
+<% @gyms.each do |gym| %>
+  <h3><%= gym.name %></h3>
+  <p>City: <%= gym.city %></p>
+  <p>Capacity: <%= gym.capacity %></p>
+
+<% end %>
