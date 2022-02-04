@@ -1,3 +1,4 @@
 class Gym < ApplicationRecord
-
-end 
+  has_many :machines
+  validates :capacity, presence: true  
+end
