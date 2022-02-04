@@ -10,10 +10,33 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
+ActiveRecord::Schema.define(version: 2022_02_03_052606) do
+
 ActiveRecord::Schema.define(version: 2022_02_03_212415) do
+
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+
+  create_table "cars", force: :cascade do |t|
+    t.string "name"
+    t.string "body_style"
+    t.integer "mpg"
+    t.boolean "electrical"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "dealerships", force: :cascade do |t|
+    t.string "name"
+    t.string "city"
+    t.integer "employees"
+    t.boolean "offer_financing"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "gyms", force: :cascade do |t|
     t.string "name"
@@ -37,4 +60,6 @@ ActiveRecord::Schema.define(version: 2022_02_03_212415) do
   end
 
   add_foreign_key "machines", "gyms"
+
 end
+
