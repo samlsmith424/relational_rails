@@ -1,0 +1,10 @@
+<a href="/">Home Page</a>
+<h1>Machines</h1>
+
+<% @machines.each do |machine| %>
+  <h3><a href="/machines/<%= machine.id %>"><%= machine.name %></h3>
+    <p>Section: <%= machine.section %></p>
+    <p>Recommended Sets: <%= machine.recommended_sets %></p>
+    <p>Recommended Reps: <%= machine.recommended_reps %></p>
+    <p>Broken?: <%= machine.is_broken %></p>
+<% end %>

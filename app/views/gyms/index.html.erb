@@ -1,0 +1,6 @@
+<a href="/">Home page</a>
+<h1>Gyms</h1>
+
+<% @gyms.each do |gym| %>
+  <h3><a href="/gyms/<%= gym.id %>"><%= gym.name %></h3>
+<% end %>
