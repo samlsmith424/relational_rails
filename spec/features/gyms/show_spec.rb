@@ -35,4 +35,5 @@ RSpec.describe 'gym show page' do
     expect(page).to have_content(gym.is_open)
     expect(page).to_not have_content(gym_2.is_open)
   end
+
 end
