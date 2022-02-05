@@ -2,9 +2,11 @@
 <h1>Machines</h1>
 
 <% @machines.each do |machine| %>
-  <h3><a href="/machines/<%= machine.id %>"><%= machine.name %></h3>
-    <p>Section: <%= machine.section %></p>
-    <p>Recommended Sets: <%= machine.recommended_sets %></p>
-    <p>Recommended Reps: <%= machine.recommended_reps %></p>
-    <p>Broken?: <%= machine.is_broken %></p>
+  <h3><a href="/machines/<%= machine.id %>"><%= machine.name %></a></h3>
+    <ul>
+      <li>Section: <%= machine.section %></li>
+      <li>Recommended Sets: <%= machine.recommended_sets %></li>
+      <li>Recommended Reps: <%= machine.recommended_reps %></li>
+      <li>Broken?: <%= machine.is_broken %></li>
+    </ul>
 <% end %>
