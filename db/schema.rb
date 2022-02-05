@@ -10,15 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-ActiveRecord::Schema.define(version: 2022_02_03_052606) do
-
-ActiveRecord::Schema.define(version: 2022_02_03_212415) do
-
+ActiveRecord::Schema.define(version: 2022_02_05_080250) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
 
   create_table "cars", force: :cascade do |t|
     t.string "name"
@@ -27,6 +22,8 @@ ActiveRecord::Schema.define(version: 2022_02_03_212415) do
     t.boolean "electrical"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "dealership_id"
+    t.index ["dealership_id"], name: "index_cars_on_dealership_id"
   end
 
   create_table "dealerships", force: :cascade do |t|
@@ -59,7 +56,6 @@ ActiveRecord::Schema.define(version: 2022_02_03_212415) do
     t.index ["gym_id"], name: "index_machines_on_gym_id"
   end
 
+  add_foreign_key "cars", "dealerships"
   add_foreign_key "machines", "gyms"
-
 end
-
