@@ -7,9 +7,8 @@
   <li><a href="/cars">Cars Index</a></li>
 </ul>
 
-<h1>Dealerships:</h1>
-<% @dealerships.each do |dealer| %>
-<p>Name: <%= dealer.name %><p>
-<p>Created: <%= dealer.created_at %><p>
-<p>id: <%= dealer.id %><p>
-<% end  %>
+<h1>Cars:</h1>
+
+<p><% @cars.each do |car| %></p>
+<p><%= link_to car.name, "/cars/#{car.id}" %></p>
+<p><% end %></p>
