@@ -10,6 +10,9 @@
 <a href="/">Home page</a>
 <h1>Gyms</h1>
 
-<% @gyms.each do |gym| %>
-  <h3><a href="/gyms/<%= gym.id %>"><%= gym.name %></h3>
+<% @gyms.create_first.each do |gym| %>
+  <h3><a href="/gyms/<%= gym.id %>"><%= gym.name %></a></h3>
+    <p>Created at: <%= gym.created_at %></p>
+    <p>Machine Count: <%= gym.machine_count %></p>
+
 <% end %>
