@@ -12,4 +12,5 @@ Rails.application.routes.draw do
   get '/gyms/:id', to: 'gyms#show'
   get '/machines', to: 'machines#index'
   get '/machines/:id', to: 'machines#show'
+  get '/gyms/:gym_id/machines', to: 'gym_machines#index'
 end
