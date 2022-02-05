@@ -248,6 +248,7 @@
           1,
           1,
           1,
+          1,
           null,
           1,
           1,
@@ -263,204 +264,14 @@
           null
         ]
       },
-      "/Users/sullybirashk/turing/2Module/projects/relational_rails/spec/features/dealerships/cars/index_spec.rb": {
+      "/Users/sullybirashk/turing/2Module/projects/relational_rails/app/models/dealership.rb": {
         "lines": [
-          1,
-          null,
-          1,
-          1,
-          1,
-          null,
-          1,
-          null,
-          1,
-          null,
-          1,
-          null,
-          null
-        ]
-      },
-      "/Users/sullybirashk/turing/2Module/projects/relational_rails/spec/features/dealerships/show_spec.rb": {
-        "lines": [
-          1,
-          null,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          null,
-          1,
-          1,
-          1,
-          null,
-          null,
-          1,
-          1,
-          1,
-          null,
-          1,
-          null,
-          1,
-          1,
-          null,
-          null,
-          1,
-          1,
-          1,
-          null,
-          1,
-          null,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          null,
-          null
-        ]
-      },
-      "/Users/sullybirashk/turing/2Module/projects/relational_rails/spec/features/gyms/machines/index_spec.rb": {
-        "lines": [
-          1,
-          null,
-          1,
-          1,
-          1,
-          1,
-          0,
-          null,
-          0,
-          null,
-          0,
-          0,
-          null,
-          null
-        ]
-      },
-      "/Users/sullybirashk/turing/2Module/projects/relational_rails/spec/features/gyms/show_spec.rb": {
-        "lines": [
-          1,
-          null,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          null,
-          1,
-          1,
-          1,
-          null,
-          null,
-          1,
-          1,
-          1,
-          null,
-          1,
-          null,
-          1,
-          1,
-          null,
-          null,
-          1,
-          1,
-          1,
-          null,
-          1,
-          null,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          null,
-          null
-        ]
-      },
-      "/Users/sullybirashk/turing/2Module/projects/relational_rails/spec/features/machines/show_spec.rb": {
-        "lines": [
-          1,
-          null,
-          1,
-          1,
-          1,
-          null,
-          1,
-          null,
-          null,
-          1,
-          null,
-          1,
-          null,
-          null
-        ]
-      },
-      "/Users/sullybirashk/turing/2Module/projects/relational_rails/spec/models/car_spec.rb": {
-        "lines": [
-
-        ]
-      },
-      "/Users/sullybirashk/turing/2Module/projects/relational_rails/spec/models/dealership_spec.rb": {
-        "lines": [
-
-        ]
-      },
-      "/Users/sullybirashk/turing/2Module/projects/relational_rails/spec/models/gym_spec.rb": {
-        "lines": [
-          1,
-          null,
-          1,
-          1,
-          2,
-          null,
-          null,
-          1,
-          2,
-          2,
-          null,
-          null
-        ]
-      },
-      "/Users/sullybirashk/turing/2Module/projects/relational_rails/app/models/gym.rb": {
-        "lines": [
-          1,
           1,
           1,
           null
         ]
       },
       "/Users/sullybirashk/turing/2Module/projects/relational_rails/app/models/application_record.rb": {
-        "lines": [
-          1,
-          1,
-          null
-        ]
-      },
-      "/Users/sullybirashk/turing/2Module/projects/relational_rails/spec/models/machine_spec.rb": {
-        "lines": [
-          1,
-          null,
-          1,
-          1,
-          2,
-          null,
-          null,
-          null
-        ]
-      },
-      "/Users/sullybirashk/turing/2Module/projects/relational_rails/app/models/machine.rb": {
-        "lines": [
-          1,
-          1,
-          null
-        ]
-      },
-      "/Users/sullybirashk/turing/2Module/projects/relational_rails/app/models/dealership.rb": {
         "lines": [
           1,
           1,
@@ -482,7 +293,7 @@
           null,
           null,
           1,
-          1,
+          0,
           null,
           null
         ]
@@ -493,46 +304,18 @@
           null
         ]
       },
-      "/Users/sullybirashk/turing/2Module/projects/relational_rails/app/controllers/dealerships_controller.rb": {
+      "/Users/sullybirashk/turing/2Module/projects/relational_rails/app/controllers/dealership_cars_controller.rb": {
         "lines": [
           1,
           1,
           1,
           null,
-          null,
           1,
-          2,
-          null,
-          null
-        ]
-      },
-      "/Users/sullybirashk/turing/2Module/projects/relational_rails/app/controllers/gyms_controller.rb": {
-        "lines": [
-          1,
-          1,
-          1,
-          null,
-          null,
-          1,
-          2,
-          null,
-          null
-        ]
-      },
-      "/Users/sullybirashk/turing/2Module/projects/relational_rails/app/controllers/machines_controller.rb": {
-        "lines": [
-          1,
-          1,
-          1,
-          null,
-          null,
-          1,
-          0,
           null,
           null
         ]
       }
     },
-    "timestamp": 1644051604
+    "timestamp": 1644099687
   }
 }
