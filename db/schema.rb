@@ -10,15 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-ActiveRecord::Schema.define(version: 2022_02_03_052606) do
-
 ActiveRecord::Schema.define(version: 2022_02_03_212415) do
-
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
 
   create_table "cars", force: :cascade do |t|
     t.string "name"
@@ -60,6 +55,4 @@ ActiveRecord::Schema.define(version: 2022_02_03_212415) do
   end
 
   add_foreign_key "machines", "gyms"
-
 end
-
