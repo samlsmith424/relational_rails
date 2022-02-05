@@ -4,4 +4,6 @@ class DealershipCarsController < ApplicationController
 
     @cars = dealership.cars
   end
+
+  
 end

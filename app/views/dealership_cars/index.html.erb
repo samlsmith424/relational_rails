@@ -1,4 +1,8 @@
 <ul>
+  <li><a href="/gyms">Gyms Index</a></li>
+  <li><a href="/machines">Machines Index</a></li>
+
+
   <li><a href="/dealerships">Dealerships Index</a></li>
   <li><a href="/cars">Cars Index</a></li>
 </ul>
@@ -6,5 +10,5 @@
 <h1>Cars:</h1>
 
 <p><% @cars.each do |car| %></p>
-<p>Car: <%= car.name %></p>
+<p><%= link_to car.name, "/cars/#{car.id}" %></p>
 <p><% end %></p>
