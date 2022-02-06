@@ -1,3 +1,4 @@
+<%= link_to "New Gym", "/gyms/new" %>
 
 <h1>Gyms</h1>
 
@@ -5,5 +6,5 @@
   <h3><a href="/gyms/<%= gym.id %>"><%= gym.name %></a></h3>
     <p>Created at: <%= gym.created_at %></p>
     <p>Machine Count: <%= gym.machine_count %></p>
-
+  
 <% end %>
