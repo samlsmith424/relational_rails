@@ -5,4 +5,5 @@
   <h3><a href="/gyms/<%= gym.id %>"><%= gym.name %></a></h3>
     <p>Created at: <%= gym.created_at %></p>
     <p>Machine Count: <%= gym.machine_count %></p>
+    <p><%= link_to "Update #{gym.name}", "/gyms/#{gym.id}/edit", method: :get %></p>
 <% end %>
