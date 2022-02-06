@@ -1,5 +1,13 @@
-<%= link_to "New Gym", "/gyms/new" %>
+<ul>
+  <li><a href="/gyms">Gyms Index</a></li>
+  <li><a href="/machines">Machines Index</a></li>
 
+
+  <li><a href="/dealerships">Dealerships Index</a></li>
+  <li><a href="/cars">Cars Index</a></li>
+</ul>
+
+<a href="/">Home page</a>
 <h1>Gyms</h1>
 
 <% @gyms.create_first.each do |gym| %>
