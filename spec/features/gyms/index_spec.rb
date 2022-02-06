@@ -36,17 +36,6 @@ RSpec.describe 'gym index page' do
     expect(page).to have_content("Machine Count: #{@gym_3.machines.count}")
   end
 
-  it 'displays a link on the top of each page to the gyms index' do
-    visit "/machines"
-    expect(page).to have_link("Gym Index", :href =>"/gyms")
-
-    visit "/"
-    expect(page).to have_link("Gym Index", :href =>"/gyms")
-
-    visit "/gyms/#{@gym_1.id}"
-    expect(page).to have_link("Gym Index", :href =>"/gyms")
-  end
-
   # save_and_open_page
 
 end
