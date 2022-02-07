@@ -16,7 +16,7 @@ RSpec.describe 'the gym creation' do
     fill_in('Capacity', with: 100)
     check('Is open')
     click_button('Create Gym')
-    save_and_open_page
+    # save_and_open_page
     expect(current_path).to eq('/gyms')
     expect(page).to have_content("Fit")
   end

@@ -19,4 +19,7 @@ Rails.application.routes.draw do
   post '/gyms', to: 'gyms#create'
   get '/gyms/:gym_id/edit', to: 'gyms#edit'
   patch '/gyms/:gym_id', to: 'gyms#update'
+  get '/gyms/:gym_id/machines/new', to: 'gym_machines#new'
+  post '/gyms/:gym_id/machines', to: 'gym_machines#create'
+  get '/machines/:id/edit', to: 'machines#edit'
 end

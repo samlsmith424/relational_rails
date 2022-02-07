@@ -14,3 +14,5 @@
 <p>Recommended Sets: <%= @machine.recommended_sets %></p>
 <p>Recommended Reps: <%= @machine.recommended_reps %></p>
 <p>Broken?: <%= @machine.is_broken %></p>
+
+<%= link_to "Update #{@machine.name}", "/machines/:id/edit" %>
