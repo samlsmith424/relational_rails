@@ -36,4 +36,14 @@ RSpec.describe 'gym show page' do
     expect(page).to_not have_content(gym_2.is_open)
   end
 
+  it 'links to the update page' do
+    gym_1 = Gym.create!(name: "24 Hour Fitness", city: "Los Angeles", capacity: 222, is_open: true)
+
+    visit "/gyms/#{gym_1.id}"
+
+    click_link "Update #{gym_1.name}"
+
+    expect(current_path).to eq("/gyms/#{gym_1.id}/edit")
+  end
+
 end

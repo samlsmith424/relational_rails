@@ -1,16 +1,8 @@
-<ul>
-  <li><a href="/gyms">Gyms Index</a></li>
-  <li><a href="/machines">Machines Index</a></li>
-
-
-  <li><a href="/dealerships">Dealerships Index</a></li>
-  <li><a href="/cars">Cars Index</a></li>
-</ul>
-
 <a href="/machines">Machines Index</a>
-
 <h1><%= @machine.name %></h1>
 <p>Section: <%= @machine.section %></p>
 <p>Recommended Sets: <%= @machine.recommended_sets %></p>
 <p>Recommended Reps: <%= @machine.recommended_reps %></p>
-<p>Broken?: <%= @machine.is_broken %></p>
+<p>Is Broken?: <%= @machine.is_broken %></p>
+
+<%= link_to "Update #{@machine.name}", "/machines/#{@machine.id}/edit" %>

@@ -1,13 +1,14 @@
 class Gym < ApplicationRecord
   has_many :machines
-  validates :capacity, presence: true
+  validates_presence_of :capacity, :name, :city
+  # validates_inclusion_of(:is_open).in_array([true, false])
 
   def self.create_first
-    Gym.order(created_at: :desc)
+    order(created_at: :desc)
   end
 
   def machine_count
-    machines.count 
+    machines.count
   end
 
 end

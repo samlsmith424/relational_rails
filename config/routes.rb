@@ -15,4 +15,11 @@ Rails.application.routes.draw do
   get '/machines', to: 'machines#index'
   get '/machines/:id', to: 'machines#show'
   get '/gyms/:gym_id/machines', to: 'gym_machines#index'
+  post '/gyms', to: 'gyms#create'
+  get '/gyms/:gym_id/edit', to: 'gyms#edit'
+  patch '/gyms/:gym_id', to: 'gyms#update'
+  get '/gyms/:gym_id/machines/new', to: 'gym_machines#new'
+  post '/gyms/:gym_id/machines', to: 'gym_machines#create'
+  get '/machines/:id/edit', to: 'machines#edit'
+  patch '/machines/:id', to: 'machines#update'
 end
