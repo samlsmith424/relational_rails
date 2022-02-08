@@ -4,7 +4,7 @@ RSpec.describe 'the gym update' do
   it 'links to the update page' do
     gym_1 = Gym.create!(name: "24 Hour Fitness", city: "Los Angeles", capacity: 222, is_open: true)
 
-    visit '/gyms'
+    visit "/gyms/#{gym_1.id}"
 
     click_link "Update #{gym_1.name}"
 
@@ -22,8 +22,7 @@ RSpec.describe 'the gym update' do
     check('Is open')
     click_button "Submit"
 
-    expect(current_path).to eq("/gyms")
+    expect(current_path).to eq("/gyms/#{gym_1.id}")
     expect(page).to have_content('All the Time Fitness')
   end
-
 end

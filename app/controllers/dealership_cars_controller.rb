@@ -3,7 +3,5 @@ class DealershipCarsController < ApplicationController
     dealership = Dealership.find(params[:dealership_id])
 
     @cars = dealership.cars
-  end
-
-  
+  end  
 end

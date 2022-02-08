@@ -12,7 +12,23 @@ RSpec.describe 'machine update page' do
 
     click_link "Update #{@machine.name}"
 
-    expect(current_path).to eq("/machines/:id/edit")
+    expect(current_path).to eq("/machines/#{@machine.id}/edit")
   end
 
+  it 'has a form to update a machine' do
+    visit "/machines/#{@machine.id}"
+
+    expect(page).to have_content("Leg Press")
+    click_link "Update #{@machine.name}"
+
+    fill_in("Name", with: 'Pec Deck')
+    fill_in('Section', with: 'Resistance Machines')
+    fill_in('Recommended sets', with: 5)
+    fill_in('Recommended reps', with: 10)
+    check('Is broken')
+    click_button('Update machine')
+
+    expect(current_path).to eq("/machines/#{@machine.id}")
+    expect(page).to have_content("Pec Deck")
+  end
 end

@@ -12,7 +12,7 @@ class GymsController < ApplicationController
 
   def create
     gym = Gym.create(gym_params)
-    redirect_to "/gyms"
+    redirect_to "/gyms/#{gym.id}"
   end
 
   def edit
@@ -22,7 +22,7 @@ class GymsController < ApplicationController
   def update
     gym = Gym.find(params[:gym_id])
     gym.update(gym_params)
-    redirect_to '/gyms'
+    redirect_to "/gyms/#{gym.id}"
   end
 
   private
