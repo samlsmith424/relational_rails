@@ -1,15 +1,8 @@
 <ul>
-  <li><a href="/gyms">Gyms Index</a></li>
-  <li><a href="/machines">Machines Index</a></li>
-
-
-  <li><a href="/dealerships">Dealerships Index</a></li>
-  <li><a href="/cars">Cars Index</a></li>
-</ul>
-
-<ul>
   <li><a href="/dealerships/<%= @dealership.id %>/cars"><%= @dealership.name %> Index</a></li>
 </ul>
+
+<%= link_to "Update Dealership", "/dealerships/#{@dealership.id}/edit" %>
 
 <h1>Dealership: <%= @dealership.name %> </h1>
 
@@ -19,3 +12,4 @@
 <p>City Located In: <%= @dealership.city %> </p>
 <p>Employee Count: <%= @dealership.employees %> </p>
 <p>Offers Financing: <%= @dealership.offer_financing %> </p>
+<p><%= link_to "Cars per Dealership", "/dealerships/#{@dealership.id}/cars" %></p>

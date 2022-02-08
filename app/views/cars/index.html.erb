@@ -1,17 +1,9 @@
-<ul>
-  <li><a href="/gyms">Gyms Index</a></li>
-  <li><a href="/machines">Machines Index</a></li>
-
-
-  <li><a href="/dealerships">Dealerships Index</a></li>
-  <li><a href="/cars">Cars Index</a></li>
-</ul>
-
 <h1>Cars:</h1>
 
 <p> <% @cars.each do |car| %> </p>
-<p>Name: <%= car[:name]  %> </p>
+<p>Name: <%= link_to car[:name], "/cars/#{car.id}"  %> </p>
 <p>Body Style: <%= car[:body_style]  %> </p>
 <p>MPG: <%= car[:mpg]  %> </p>
 <p>Electrical: <%= car[:electrical]  %> </p>
+<p>---------------------</p>
 <p><% end %> </p>

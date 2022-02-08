@@ -19,11 +19,11 @@ RSpec.describe 'car index page' do
     civic = honda.cars.create!(name: "Civic", body_style: "Coupe", mpg: 55, electrical: true)
     accord = honda.cars.create!(name: "Accord", body_style: "Coupe", mpg: 42, electrical: false)
 
-    gtr = nissan.cars.create!(name: "GTR", body_style: "Coupe", mpg: 26, electrical: false)
-    altima = nissan.cars.create!(name: "Altima", body_style: "Sedan", mpg: 30, electrical: false)
-
-    supra = toyota.cars.create!(name: "Supra", body_style: "Coupe", mpg: 28, electrical: false)
-    tundra = toyota.cars.create!(name: "Tundra", body_style: "Truck", mpg: 19, electrical: false)
+    # gtr = nissan.cars.create!(name: "GTR", body_style: "Coupe", mpg: 26, electrical: false)
+    # altima = nissan.cars.create!(name: "Altima", body_style: "Sedan", mpg: 30, electrical: false)
+    #
+    # supra = toyota.cars.create!(name: "Supra", body_style: "Coupe", mpg: 28, electrical: false)
+    # tundra = toyota.cars.create!(name: "Tundra", body_style: "Truck", mpg: 19, electrical: false)
 
     visit "/dealerships/#{honda.id}/cars"
 

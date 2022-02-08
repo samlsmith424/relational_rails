@@ -1,0 +1,11 @@
+<%= form_with url: "/cars/#{@car.id}/edit", method: :patch, local: true do |form| %>
+<%= form.label :name %>
+<%= form.text_field :name %>
+<%= form.label :body_style %>
+<%= form.text_field :body_style %>
+<%= form.label :mpg %>
+<%= form.number_field :mpg %>
+<%= form.label :electrical %>
+<%= form.check_box :electrical %>
+<%= form.submit "Update Car" %>
+<% end %>
