@@ -10,4 +10,5 @@ class Gym < ApplicationRecord
   def machine_count
     machines.count
   end
+
 end

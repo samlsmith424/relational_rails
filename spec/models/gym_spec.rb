@@ -30,4 +30,5 @@ RSpec.describe Gym, type: :model do
       expect(gym_1.machine_count).to eq(3)
     end
   end
+
 end

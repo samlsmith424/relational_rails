@@ -3,7 +3,6 @@ require 'rails_helper'
 RSpec.describe 'the gym creation' do
   before(:each) do
     @gym = Gym.create!(name: "24 Hour Fitness", city: "Los Angeles", capacity: 222, is_open: true)
-
   end
   it 'links to the new page from the gym index' do
     visit '/gyms'

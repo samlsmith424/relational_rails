@@ -11,7 +11,6 @@ Rails.application.routes.draw do
 
   get '/', to: 'greeting#index'
   get '/gyms', to: 'gyms#index'
-  get '/gyms/new', to: 'gyms#new'
   get '/gyms/:id', to: 'gyms#show'
   get '/machines', to: 'machines#index'
   get '/machines/:id', to: 'machines#show'
