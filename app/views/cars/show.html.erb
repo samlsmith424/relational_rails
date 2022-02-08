@@ -1,15 +1,9 @@
-<ul>
-  <li><a href="/gyms">Gyms Index</a></li>
-  <li><a href="/machines">Machines Index</a></li>
-
-
-  <li><a href="/dealerships">Dealerships Index</a></li>
-  <li><a href="/cars">Cars Index</a></li>
-</ul>
+<p><%= link_to "Update Car", "/cars/#{@car.id}/edit" %></p>
 
 <h1>Car:</h1>
 
+
 <p>Name: <%= @car.name %> </p>
-<p>City Located In: <%= @car.body_style %> </p>
-<p>Employee Count: <%= @car.mpg %> </p>
-<p>Offers Financing: <%= @car.electrical %> </p>
+<p>Body Style: <%= @car.body_style %> </p>
+<p>MPG: <%= @car.mpg %> </p>
+<p>Electrical: <%= @car.electrical %> </p>
