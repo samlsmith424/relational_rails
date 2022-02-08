@@ -1,3 +1,6 @@
-<% @machines.each do |machine| %>
+<h3>Machines at the Gym</h3>
+<%= link_to "Create Machine", "/gyms/#{@gym.id}/machines/new" %>
+
+<% @gym.machines.each do |machine| %>
   <%= link_to machine.name, "/machines/#{machine.id}" %>
 <% end %>

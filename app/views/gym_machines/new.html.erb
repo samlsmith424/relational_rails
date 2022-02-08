@@ -1,0 +1,13 @@
+<%= form_with url: "/gyms/#{@gym.id}/machines", method: :post, local: true do |form| %>
+  <%= form.label :name %>
+  <%= form.text_field :name %>
+  <%= form.label :section %>
+  <%= form.text_field :section %>
+  <%= form.label :recommended_reps %>
+  <%= form.number_field :recommended_reps %>
+  <%= form.label :recommended_sets %>
+  <%= form.number_field :recommended_sets %>
+  <%= form.label :is_broken %>
+  <%= form.check_box :is_broken %>
+  <%= form.submit "Create Machine" %>
+<% end %>

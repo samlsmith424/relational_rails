@@ -1,17 +1,8 @@
-<ul>
-  <li><a href="/gyms">Gyms Index</a></li>
-  <li><a href="/machines">Machines Index</a></li>
+<%= link_to "New Gym", "/gyms/new" %>
 
-
-  <li><a href="/dealerships">Dealerships Index</a></li>
-  <li><a href="/cars">Cars Index</a></li>
-</ul>
-
-<a href="/">Home page</a>
 <h1>Gyms</h1>
 
 <% @gyms.create_first.each do |gym| %>
   <h3><a href="/gyms/<%= gym.id %>"><%= gym.name %></a></h3>
     <p>Created at: <%= gym.created_at %></p>
-    <p>Machine Count: <%= gym.machine_count %></p>
 <% end %>
