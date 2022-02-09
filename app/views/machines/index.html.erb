@@ -9,4 +9,5 @@
       <li>Recommended Reps: <%= machine.recommended_reps %></li>
       <li>Is broken?: <%= machine.is_broken %></li>
     </ul>
+    <p><%= link_to "Edit #{machine.name}", "/machines/#{machine.id}/edit" %></p>
 <% end %>

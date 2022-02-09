@@ -1,6 +1,10 @@
 class GymMachinesController < ApplicationController
   def index
     @gym= Gym.find(params[:gym_id])
+    @machines = @gym.machines
+    if params[:sort_by] == "name"
+      @machines = @machines.order(:name)
+    end
   end
 
   def new

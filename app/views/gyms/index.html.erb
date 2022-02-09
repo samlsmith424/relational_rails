@@ -5,4 +5,5 @@
 <% @gyms.create_first.each do |gym| %>
   <h3><a href="/gyms/<%= gym.id %>"><%= gym.name %></a></h3>
     <p>Created at: <%= gym.created_at %></p>
+    <p><%= link_to "Edit #{gym.name}", "/gyms/#{gym.id}/edit", method: :get %></p>
 <% end %>
