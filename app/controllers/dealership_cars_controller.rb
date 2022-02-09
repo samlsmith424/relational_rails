@@ -19,6 +19,7 @@ class DealershipCarsController < ApplicationController
   end
 
   def edit
+    # @dealership = Dealership.find(params[:id])
   end
 
   private

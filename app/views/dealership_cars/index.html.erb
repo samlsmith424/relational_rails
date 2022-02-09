@@ -5,4 +5,5 @@
 
 <p><% @cars.each do |car| %></p>
 <p><%= link_to car.name, "/cars/#{car.id}" %></p>
+<p><%= link_to "Edit #{car.name}", "/cars/#{car.id}/edit" %></p>
 <p><% end %></p>

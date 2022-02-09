@@ -9,12 +9,30 @@ RSpec.describe 'machine index page' do
   end
 
   it 'displays only electrical cars' do
-    
+
     visit "/cars"
 
     expect(page).to have_content("Accord")
     expect(page).to have_content("civic")
     expect(page).to_not have_content("CRV")
+  end
+
+  it 'shows edit button for each car' do
+
+    visit "/cars"
+
+    expect(page).to have_content("Edit #{@accord.name}")
+    expect(page).to have_content("Edit #{@civic.name}")
+  end
+
+
+  it 'routes us to edit page when I click edit button' do
+
+    visit "/cars"
+
+    click_on("Edit #{@accord.name}")
+
+    expect(current_path).to eq("/cars/#{@accord.id}/edit")
   end
 
 end

@@ -5,5 +5,6 @@
 <p>Body Style: <%= car[:body_style]  %> </p>
 <p>MPG: <%= car[:mpg]  %> </p>
 <p>Electrical: <%= car[:electrical]  %> </p>
+<p><%= link_to "Edit #{car.name}", "/cars/#{car.id}/edit" %></p>
 <p>---------------------</p>
 <p><% end %> </p>
