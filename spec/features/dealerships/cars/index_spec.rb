@@ -36,7 +36,6 @@ RSpec.describe 'car index page' do
 
     expect(current_path).to eq("/dealerships/#{honda.id}/cars")
 
-    save_and_open_page
     expect(accord.name).to appear_before(cbr600.name)
     expect(cbr600.name).to appear_before(civic.name)
   end
