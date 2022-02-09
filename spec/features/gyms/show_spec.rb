@@ -46,4 +46,24 @@ RSpec.describe 'gym show page' do
     expect(current_path).to eq("/gyms/#{gym_1.id}/edit")
   end
 
+  it 'has a link to delete a gym' do
+    gym_1 = Gym.create!(name: "24 Hour Fitness", city: "Los Angeles", capacity: 222, is_open: true)
+
+    visit "/gyms/#{gym_1.id}"
+
+    expect(page).to have_content("Delete #{gym_1.name}")
+  end
+
+  it 'deletes a gym' do
+    gym_1 = Gym.create!(name: "24 Hour Fitness", city: "Los Angeles", capacity: 222, is_open: true)
+
+    visit "/gyms/#{gym_1.id}"
+
+    expect(page).to have_content(gym_1.name)
+
+    click_on "Delete #{gym_1.name}"
+
+    expect(current_path).to eq("/gyms")
+    expect(page).to_not have_content(gym_1.name)
+  end
 end

@@ -6,3 +6,4 @@
 <p>Is Broken?: <%= @machine.is_broken %></p>
 
 <%= link_to "Update #{@machine.name}", "/machines/#{@machine.id}/edit" %>
+<p><%= link_to "Delete #{@machine.name}", "/machines/#{@machine.id}", method: :delete %></p>

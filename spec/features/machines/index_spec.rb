@@ -29,6 +29,22 @@ RSpec.describe 'machine index page' do
     expect(current_path).to eq("/machines/#{@machine.id}/edit")
   end
 
+  it 'has a link to delete a machine' do
+    visit "/machines"
+
+    expect(page).to have_content("Delete #{@machine.name}")
+  end
+
+  it 'deletes a machine' do
+    visit "/machines"
+
+    expect(page).to have_content(@machine.name)
+
+    click_on "Delete #{@machine.name}"
+
+    expect(current_path).to eq("/machines")
+    expect(page).to_not have_content(@machine.name)
+  end
 end
 
 # it 'displays a link to the machine index on every page' do

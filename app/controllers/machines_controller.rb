@@ -20,6 +20,12 @@ class MachinesController < ApplicationController
     redirect_to "/machines/#{machine.id}"
   end
 
+  def destroy
+    machine = Machine.find(params[:id])
+    machine.destroy
+    redirect_to '/machines'
+  end
+
   private
   def machine_params
     params.permit(:name, :capacity, :recommended_sets, :recommended_reps, :is_broken)

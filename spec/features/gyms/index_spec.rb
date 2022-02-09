@@ -38,18 +38,21 @@ RSpec.describe 'gym index page' do
     expect(current_path).to eq("/gyms/#{@gym_1.id}/edit")
   end
 
-  # it 'can see a count of machines associated with each gym' do
-  #   machine = @gym_1.machines.create!(name: "Leg Press", section: "Resistance Machines", recommended_sets: 5, recommended_reps: 10, is_broken: true)
-  #   machine_2 = @gym_1.machines.create!(name: "Elliptical", section: "Cardio", recommended_sets: 1, recommended_reps: 1, is_broken: true)
-  #   machine_3 = @gym_1.machines.create!(name: "Smith Machine", section: "Personal Training", recommended_sets: 5, recommended_reps: 12, is_broken: true)
-  #
-  #   visit "/gyms/"
-  #
-  #   expect(page).to have_content("Machine Count: #{@gym_1.machines.count}")
-  #   expect(page).to have_content("Machine Count: #{@gym_2.machines.count}")
-  #   expect(page).to have_content("Machine Count: #{@gym_3.machines.count}")
-  # end
+  it 'has a link to delete a gym' do
+    visit "/gyms"
 
-  # save_and_open_page
+    expect(page).to have_content("Delete #{@gym_1.name}")
+  end
+
+  it 'deletes a gym' do
+    visit "/gyms"
+
+    expect(page).to have_content(@gym_1.name)
+
+    click_on "Delete #{@gym_1.name}"
+
+    expect(current_path).to eq("/gyms")
+    expect(page).to_not have_content(@gym_1.name)
+  end
 
 end

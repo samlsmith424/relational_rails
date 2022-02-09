@@ -19,9 +19,25 @@ RSpec.describe 'machine show page' do
   end
 
   it 'can see a count of machines associated with each gym' do
-
     visit "/gyms/#{@gym.id}"
 
     expect(page).to have_content("Machine Count: #{@gym.machine_count}")
+  end
+
+  it 'has a link to delete a machine' do
+    visit "/machines/#{@machine.id}"
+
+    expect(page).to have_content("Delete #{@machine.name}")
+  end
+
+  it 'deletes a machine' do
+    visit "/machines/#{@machine.id}"
+
+    expect(page).to have_content(@machine.name)
+
+    click_on "Delete #{@machine.name}"
+
+    expect(current_path).to eq("/machines")
+    expect(page).to_not have_content(@machine.name)
   end
 end

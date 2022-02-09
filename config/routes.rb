@@ -32,4 +32,6 @@ Rails.application.routes.draw do
   post '/gyms/:gym_id/machines', to: 'gym_machines#create'
   get '/machines/:id/edit', to: 'machines#edit'
   patch '/machines/:id', to: 'machines#update'
+  delete '/gyms/:id', to: 'gyms#destroy'
+  delete '/machines/:id', to: 'machines#destroy'
 end

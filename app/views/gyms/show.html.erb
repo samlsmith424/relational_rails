@@ -4,5 +4,6 @@
 <p>Is open: <%= @gym.is_open %></p>
 <p>Machine Count: <%= @gym.machine_count %></p>
 <p><%= link_to "Update #{@gym.name}", "/gyms/#{@gym.id}/edit", method: :get %></p>
-
 <%= link_to "Machines Per Gym", "/gyms/#{@gym.id}/machines" %>
+
+<p><%= link_to "Delete #{@gym.name}", "/gyms/#{@gym.id}", method: :delete %></p>
