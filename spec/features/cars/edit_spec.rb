@@ -31,7 +31,6 @@ RSpec.describe 'the Car update' do
     click_button('Update Car')
 
     expect(current_path).to eq("/cars/#{civic.id}")
-
     expect(page).to have_content("Chevy")
   end
 end

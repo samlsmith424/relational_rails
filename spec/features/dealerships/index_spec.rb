@@ -58,13 +58,11 @@ RSpec.describe 'Dealerhship index page' do
     visit "/dealerships"
 
     expect(page).to have_content("Delete #{@honda.name}")
-
     expect(page).to have_content("Honda")
 
     click_on("Delete #{@honda.name}")
 
     expect(current_path).to eq( "/dealerships")
-
     expect(page).to_not have_content("Honda")
   end
 

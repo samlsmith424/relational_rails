@@ -60,13 +60,11 @@ RSpec.describe 'machine index page' do
     visit "/cars"
 
     expect(page).to have_content("Delete #{@civic.name}")
-
     expect(page).to have_content("civic")
 
     click_on("Delete #{@civic.name}")
 
     expect(current_path).to eq( "/cars")
-
     expect(page).to_not have_content("civic")
   end
 
@@ -89,5 +87,4 @@ RSpec.describe 'machine index page' do
     visit "/cars/#{@accord.id}"
     expect(page).to have_link("Cars Index", :href =>"/cars")
   end
-
 end

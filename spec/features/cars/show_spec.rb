@@ -46,13 +46,11 @@ RSpec.describe 'car show page' do
     visit "/cars/#{civic.id}"
 
     expect(page).to have_content("Delete #{civic.name}")
-
     expect(page).to have_content("Civic")
 
     click_on("Delete #{civic.name}")
 
     expect(page).to_not have_content("Civic")
-
     expect(current_path).to eq( "/cars")
   end
 end
