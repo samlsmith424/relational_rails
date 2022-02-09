@@ -3,9 +3,11 @@ class DealershipCarsController < ApplicationController
     @dealership = Dealership.find(params[:id])
     #binding.pry
     @cars = @dealership.cars
-    if params[:sort_by] == 'alphabetically'
-      @cars = @cars.order(:name)
-    end
+      if params[:sort_by] == 'alphabetically'
+        @cars = @cars.order(:name)
+      elsif params[:mpg_threshold]
+        @cars = @cars.mpg_threshold(params[:mpg_threshold])
+      end
   end
 
   def new

@@ -3,7 +3,19 @@
 <p><%= link_to "Create Car", "/dealerships/#{@dealership.id}/cars/new" %></p>
 <p><%= link_to "Sort Alphabetically", "/dealerships/#{@dealership.id}/cars?sort_by=alphabetically" %></p>
 
+<p>--------------------</p>
+
 <p><% @cars.each do |car| %></p>
-<p><%= link_to car.name, "/cars/#{car.id}" %></p>
+<h3><%= link_to car.name, "/cars/#{car.id}" %></h3>
+<p>Body Style: <%= car.body_style %></p>
+<p>MPG: <%= car.mpg %></p>
+<p>Electrical? : <%= car.electrical %></p>
 <p><%= link_to "Edit #{car.name}", "/cars/#{car.id}/edit" %></p>
+<p>-------------------</p>
 <p><% end %></p>
+
+<%= form_with url: "/dealerships/#{@dealership.id}/cars", method: :get, local: true do |form| %>
+<%= form.label :mpg_threshold %>
+<%= form.number_field :mpg_threshold, in: 0..200 %>
+<%= form.submit "Filter Cars by MPG Threshold" %>
+<% end %>

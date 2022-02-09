@@ -5,4 +5,7 @@ class Car < ApplicationRecord
     where(electrical: true)
   end
 
+  def self.mpg_threshold(num)
+    where("mpg > #{num}")
+  end
 end

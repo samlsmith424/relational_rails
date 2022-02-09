@@ -1,9 +1,10 @@
 <%= link_to "New Dealership", "/dealerships/new" %>
 
 <h1>Dealerships:</h1>
-<% @dealerships.each do |dealer| %>
+<% @dealerships.order_first.each do |dealer| %>
 <p>Name: <%= link_to dealer.name, "/dealerships/#{dealer.id}" %> <p>
 <p>Created: <%= dealer.created_at %><p>
 <p><%= link_to "Edit #{dealer.name}", "/dealerships/#{dealer.id}/edit" %></p>
 <p><%= link_to "Delete #{dealer.name}", "/dealerships/#{dealer.id}", method: :delete %></p>
+<p>---------------------</p>
 <% end  %>
