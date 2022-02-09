@@ -25,6 +25,12 @@ class GymsController < ApplicationController
     redirect_to "/gyms/#{gym.id}"
   end
 
+  def destroy
+    gym = Gym.find(params[:id])
+    gym.destroy
+    redirect_to '/gyms'
+  end
+
   private
 
   def gym_params
