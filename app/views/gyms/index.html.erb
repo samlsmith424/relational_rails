@@ -7,4 +7,5 @@
     <p>Created at: <%= gym.created_at %></p>
     <p><%= link_to "Edit #{gym.name}", "/gyms/#{gym.id}/edit", method: :get %></p>
     <p><%= link_to "Delete #{gym.name}", "/gyms/#{gym.id}", method: :delete %></p>
+    <p>---------------------</p>
 <% end %>

@@ -55,4 +55,25 @@ RSpec.describe 'gym index page' do
     expect(page).to_not have_content(@gym_1.name)
   end
 
+  it 'has links to gyms index on top of the page' do
+    machine = @gym_1.machines.create!(name: "Leg Press", section: "Resistance Machines", recommended_sets: 5, recommended_reps: 10, is_broken: true)
+
+    visit "/machines"
+    expect(page).to have_link("Gyms Index", :href =>"/gyms")
+
+    visit "/"
+    expect(page).to have_link("Gyms Index", :href =>"/gyms")
+
+    visit "/gyms"
+    expect(page).to have_link("Gyms Index", :href =>"/gyms")
+
+    visit "/gyms/#{@gym_1.id}"
+    expect(page).to have_link("Gyms Index", :href =>"/gyms")
+
+    visit "/gyms/#{@gym_1.id}/machines"
+    expect(page).to have_link("Gyms Index", :href =>"/gyms")
+
+    visit "/machines/#{machine.id}"
+    expect(page).to have_link("Gyms Index", :href =>"/gyms")
+  end
 end

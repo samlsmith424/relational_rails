@@ -5,6 +5,9 @@
 
 <% @machines.each do |machine| %>
   <h3><%= link_to machine.name, "/machines/#{machine.id}" %></h3>
+  <p>Section: <%= machine.section %></p>
+  <p>Recommed Sets: <%= machine.recommended_sets %></p>
+  <p>Recommed Reps: <%= machine.recommended_reps %></p>
   <p><%= link_to "Edit #{machine.name}", "/machines/#{machine.id}/edit" %></p>
   <p>---------------------</p>
 <% end %>
