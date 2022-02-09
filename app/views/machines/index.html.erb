@@ -1,15 +1,13 @@
-<a href="/">Home Page</a>
+
 <h1>Machines</h1>
 
 <% @machines.show_broken.each do |machine| %>
   <h3><a href="/machines/<%= machine.id %>"><%= machine.name %></a></h3>
-    <ul>
-      <li>Section: <%= machine.section %></li>
-      <li>Recommended Sets: <%= machine.recommended_sets %></li>
-      <li>Recommended Reps: <%= machine.recommended_reps %></li>
-      <li>Is broken?: <%= machine.is_broken %></li>
-    </ul>
-    <p><%= link_to "Edit #{machine.name}", "/machines/#{machine.id}/edit" %></p>
-    <p><%= link_to "Delete #{machine.name}", "/machines/#{machine.id}", method: :delete %></p>
-    <p>---------------------</p>
+  <p style="font-size: 20px"><b>Section:</b> <%= machine.section %></p>
+  <p style="font-size: 20px"><b>Recommended Sets:</b> <%= machine.recommended_sets %></p>
+  <p style="font-size: 20px"><b>Recommended Reps:</b> <%= machine.recommended_reps %></p>
+  <p style="font-size: 20px"><b>Is broken?:</b> <%= machine.is_broken %></p>
+  <p><%= link_to "Edit #{machine.name}", "/machines/#{machine.id}/edit" %></p>
+  <p><%= link_to "Delete #{machine.name}", "/machines/#{machine.id}", method: :delete %></p>
+  <p>---------------------</p>
 <% end %>

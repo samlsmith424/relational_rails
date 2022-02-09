@@ -1,16 +1,13 @@
-<ul>
-  <li><a href="/dealerships/<%= @dealership.id %>/cars"><%= @dealership.name %> Index</a></li>
-</ul>
-
-<%= link_to "Update Dealership", "/dealerships/#{@dealership.id}/edit" %>
-
 <h1>Dealership: <%= @dealership.name %> </h1>
+<%= link_to "Update Dealership", "/dealerships/#{@dealership.id}/edit" %>
+<p>---------------------------------</p>
+<p style="font-size: 20px"><b>Number of Cars:</b> <%= @dealership.cars.count %></p>
+<p style="font-size: 20px"><b>Name:</b> <%= @dealership.name %> </p>
+<p style="font-size: 20px"><b>City Located In:</b> <%= @dealership.city %> </p>
+<p style="font-size: 20px"><b>Employee Count:</b> <%= @dealership.employees %> </p>
+<p style="font-size: 20px"><b>Offers Financing:</b> <%= @dealership.offer_financing %> </p>
 
-<p>Number of Cars: <%= @dealership.cars.count %></p>
-
-<p>Name: <%= @dealership.name %> </p>
-<p>City Located In: <%= @dealership.city %> </p>
-<p>Employee Count: <%= @dealership.employees %> </p>
-<p>Offers Financing: <%= @dealership.offer_financing %> </p>
+<p>---------------------------------</p>
+<h3>Customizing Links</h3>
 <p><%= link_to "Cars in Dealership", "/dealerships/#{@dealership.id}/cars" %></p>
 <p><%= link_to "Delete #{@dealership.name}", "/dealerships/#{@dealership.id}", method: :delete %></p>

@@ -1,10 +1,11 @@
-<h1>Cars:</h1>
-
+<h1>Cars</h1>
+<hr>
 <p> <% @cars.all_electrical.each do |car| %> </p>
-<p>Name: <%= link_to car[:name], "/cars/#{car.id}"  %> </p>
-<p>Body Style: <%= car[:body_style]  %> </p>
-<p>MPG: <%= car[:mpg]  %> </p>
-<p>Electrical: <%= car[:electrical]  %> </p>
+<p style="font-size: 20px"><b>Name:</b> <%= link_to car[:name], "/cars/#{car.id}"  %> </p>
+<p style="font-size: 20px"><b>Body Style:</b> <%= car[:body_style]  %> </p>
+<p style="font-size: 20px"><b>MPG:</b> <%= car[:mpg]  %> </p>
+<p style="font-size: 20px"><b>Electrical:</b> <%= car[:electrical]  %> </p>
+
 <p><%= link_to "Edit #{car.name}", "/cars/#{car.id}/edit" %></p>
 <p><%= link_to "Delete #{car.name}", "/cars/#{car.id}", method: :delete %></p>
 <p>---------------------</p>

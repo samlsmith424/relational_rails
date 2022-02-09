@@ -1,9 +1,14 @@
 <h1><%= @gym.name %></h1>
-<p>City: <%= @gym.city %></p>
-<p>Capacity: <%= @gym.capacity %></p>
-<p>Is open: <%= @gym.is_open %></p>
-<p>Machine Count: <%= @gym.machine_count %></p>
-<p><%= link_to "Update #{@gym.name}", "/gyms/#{@gym.id}/edit", method: :get %></p>
-<%= link_to "Machines in Gym", "/gyms/#{@gym.id}/machines" %>
+<hr>
+<p style="font-size: 20px"><b>City:</b> <%= @gym.city %></p>
+<p style="font-size: 20px"><b>Capacity:</b> <%= @gym.capacity %></p>
+<p style="font-size: 20px"><b>Is open:</b> <%= @gym.is_open %></p>
+<p style="font-size: 20px"><b>Machine Count:</b> <%= @gym.machine_count %></p>
 
-<p><%= link_to "Delete #{@gym.name}", "/gyms/#{@gym.id}", method: :delete %></p>
+<p>---------------------------------</p>
+<h3>Customizing Links</h3>
+<ul>
+  <li><%= link_to "Update #{@gym.name}", "/gyms/#{@gym.id}/edit", method: :get %></li>
+  <li><%= link_to "Machines in Gym", "/gyms/#{@gym.id}/machines" %></li>
+  <li><%= link_to "Delete #{@gym.name}", "/gyms/#{@gym.id}", method: :delete %></li>
+</ul>

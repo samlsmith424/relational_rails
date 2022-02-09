@@ -1,6 +1,6 @@
-<%= link_to "New Gym", "/gyms/new" %>
 <h1>Gyms</h1>
-
+<%= link_to "New Gym", "/gyms/new" %>
+<p>---------------------</p>
 <% @gyms.create_first.each do |gym| %>
   <h3><a href="/gyms/<%= gym.id %>"><%= gym.name %></a></h3>
     <p>Created at: <%= gym.created_at %></p>
