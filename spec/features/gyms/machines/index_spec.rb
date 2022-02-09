@@ -29,4 +29,19 @@ RSpec.describe 'Machines at each gym' do
     expect(current_path).to eq("/gyms/#{@gym.id}/machines")
     expect(@machine_2.name).to appear_before(@machine.name)
   end
+
+  it 'displays an edit button for each gym machine' do
+    visit "/gyms/#{@gym.id}/machines"
+
+    expect(page).to have_content("Edit #{@machine.name}")
+  end
+
+  it 'can edit each gym machine' do
+    visit "/gyms/#{@gym.id}/machines"
+
+    click_on "Edit #{@machine.name}"
+
+    expect(current_path).to eq("/machines/#{@machine.id}/edit")
+  end
+
 end

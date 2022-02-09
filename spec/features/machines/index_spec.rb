@@ -14,6 +14,21 @@ RSpec.describe 'machine index page' do
     expect(page).to have_content("Leg Press")
     expect(page).to_not have_content("Elliptical")
   end
+
+  it 'displays an edit button for each machine' do
+    visit "/machines"
+
+    expect(page).to have_content("Edit #{@machine.name}")
+  end
+
+  it 'can edit each machine' do
+    visit "/machines"
+
+    click_on "Edit #{@machine.name}"
+
+    expect(current_path).to eq("/machines/#{@machine.id}/edit")
+  end
+
 end
 
 # it 'displays a link to the machine index on every page' do
