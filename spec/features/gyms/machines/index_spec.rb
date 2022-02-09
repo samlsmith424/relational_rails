@@ -6,11 +6,18 @@ RSpec.describe 'Machines at each gym' do
     @machine = @gym.machines.create!(name: "Leg Press", section: "Resistance Machines", recommended_sets: 5, recommended_reps: 10, is_broken: false)
     @machine_2 = @gym.machines.create!(name: "Elliptical", section: "Cardio", recommended_sets: 1, recommended_reps: 1, is_broken: false)
   end
-  it 'shows each machine that is associated with a specific gym' do
+
+  it 'shows each machine and its attributes that is associated with a specific gym' do
     visit "/gyms/#{@gym.id}/machines"
 
     expect(page).to have_content(@machine.name)
     expect(page).to have_content(@machine_2.name)
+    expect(page).to have_content(@machine.section)
+    expect(page).to have_content(@machine_2.section)
+    expect(page).to have_content(@machine.recommended_sets)
+    expect(page).to have_content(@machine_2.recommended_sets)
+    expect(page).to have_content(@machine.recommended_reps)
+    expect(page).to have_content(@machine_2.recommended_reps)
   end
 
   it 'shows each machines attributes' do
@@ -44,4 +51,17 @@ RSpec.describe 'Machines at each gym' do
     expect(current_path).to eq("/machines/#{@machine.id}/edit")
   end
 
+  it 'has a form that returns records according to input threshold' do
+    visit "/gyms/#{@gym.id}/machines"
+
+    expect(page).to have_content("Leg Press")
+    expect(page).to have_content("Elliptical")
+
+    fill_in('Rep threshold', with: 4)
+    click_on('Filter Machines by Rep Threshold')
+
+    expect(current_path).to eq("/gyms/#{@gym.id}/machines")
+    expect(page).to have_content("Leg Press")
+    expect(page).to_not have_content("Elliptical")
+  end
 end

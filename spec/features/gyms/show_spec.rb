@@ -36,6 +36,26 @@ RSpec.describe 'gym show page' do
     expect(page).to_not have_content(gym_2.is_open)
   end
 
+  it 'can see a count of machines associated with each gym' do
+    gym = Gym.create!(name: "24 Hour Fitness", city: "Los Angeles", capacity: 222, is_open: true)
+    machine = gym.machines.create!(name: "Leg Press", section: "Resistance Machines", recommended_sets: 5, recommended_reps: 10, is_broken: true, gym_id: 1)
+    machine_2 = gym.machines.create!(name: "Elliptical", section: "Cardio", recommended_sets: 1, recommended_reps: 1, is_broken: true)
+
+    visit "/gyms/#{gym.id}"
+
+    expect(page).to have_content("Machine Count: #{gym.machine_count}")
+    expect(gym.machine_count).to eq(2)
+  end
+
+  it 'displays a link to the Machines in each gym' do
+    gym = Gym.create!(name: "24 Hour Fitness", city: "Los Angeles", capacity: 222, is_open: true)
+    machine = gym.machines.create!(name: "Leg Press", section: "Resistance Machines", recommended_sets: 5, recommended_reps: 10, is_broken: true, gym_id: 1)
+    machine_2 = gym.machines.create!(name: "Elliptical", section: "Cardio", recommended_sets: 1, recommended_reps: 1, is_broken: true)
+
+    visit "/gyms/#{gym.id}"
+    expect(page).to have_link("Machines in Gym", :href =>"/gyms/#{gym.id}/machines")
+  end
+
   it 'links to the update page' do
     gym_1 = Gym.create!(name: "24 Hour Fitness", city: "Los Angeles", capacity: 222, is_open: true)
 
@@ -44,6 +64,15 @@ RSpec.describe 'gym show page' do
     click_link "Update #{gym_1.name}"
 
     expect(current_path).to eq("/gyms/#{gym_1.id}/edit")
+
+    fill_in('Name', with: 'Fit')
+    fill_in('City', with: 'Denver')
+    fill_in('Capacity', with: 100)
+    check('Is open')
+    click_on "Submit"
+
+    expect(current_path).to eq("/gyms/#{gym_1.id}")
+    expect(page).to have_content("Fit")
   end
 
   it 'has a link to delete a gym' do
@@ -58,7 +87,6 @@ RSpec.describe 'gym show page' do
     gym_1 = Gym.create!(name: "24 Hour Fitness", city: "Los Angeles", capacity: 222, is_open: true)
 
     visit "/gyms/#{gym_1.id}"
-
     expect(page).to have_content(gym_1.name)
 
     click_on "Delete #{gym_1.name}"

@@ -5,6 +5,15 @@
 
 <% @machines.each do |machine| %>
   <h3><%= link_to machine.name, "/machines/#{machine.id}" %></h3>
+  <p>Section: <%= machine.section %></p>
+  <p>Recommed Sets: <%= machine.recommended_sets %></p>
+  <p>Recommed Reps: <%= machine.recommended_reps %></p>
   <p><%= link_to "Edit #{machine.name}", "/machines/#{machine.id}/edit" %></p>
   <p>---------------------</p>
+<% end %>
+
+<%= form_with url: "/gyms/#{@gym.id}/machines", method: :get, local: true do |form| %>
+<%= form.label :rep_threshold %>
+<%= form.number_field :rep_threshold, in: 0..100 %>
+<%= form.submit "Filter Machines by Rep Threshold" %>
 <% end %>
