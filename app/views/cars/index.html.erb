@@ -1,6 +1,6 @@
 <h1>Cars:</h1>
 
-<p> <% @cars.each do |car| %> </p>
+<p> <% @cars.all_electrical.each do |car| %> </p>
 <p>Name: <%= link_to car[:name], "/cars/#{car.id}"  %> </p>
 <p>Body Style: <%= car[:body_style]  %> </p>
 <p>MPG: <%= car[:mpg]  %> </p>

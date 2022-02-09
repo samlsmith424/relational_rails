@@ -1,8 +1,11 @@
 class DealershipCarsController < ApplicationController
   def index
-    @dealership = Dealership.find(params[:dealership_id])
-
+    @dealership = Dealership.find(params[:id])
+    #binding.pry
     @cars = @dealership.cars
+    if params[:sort_by] == 'alphabetically'
+      @cars = @cars.order(:name)
+    end
   end
 
   def new

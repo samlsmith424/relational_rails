@@ -1,6 +1,7 @@
 <h1>Cars:</h1>
 
 <p><%= link_to "Create Car", "/dealerships/#{@dealership.id}/cars/new" %></p>
+<p><%= link_to "Sort Alphabetically", "/dealerships/#{@dealership.id}/cars?sort_by=alphabetically" %></p>
 
 <p><% @cars.each do |car| %></p>
 <p><%= link_to car.name, "/cars/#{car.id}" %></p>
