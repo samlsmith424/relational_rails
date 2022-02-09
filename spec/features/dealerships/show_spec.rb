@@ -62,7 +62,7 @@ RSpec.describe 'dealership show page' do
     expect(current_path).to eq("/dealerships")
   end
 
-  it 'displays a link to the Cars index on every page' do
+  it 'displays a link to the Cars index Dealership show page' do
     honda = Dealership.create!(name: 'Honda', city: 'Thornton', employees: 46, offer_financing: true)
 
     visit "/dealerships/#{honda.id}"
