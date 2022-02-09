@@ -8,18 +8,23 @@ RSpec.describe 'car index page' do
     @accord = @honda.cars.create!(name: "Accord", body_style: "Coupe", mpg: 42, electrical: true)
     @cbr600 = @honda.cars.create!(name: "CBR600rr", body_style: "Motorcycle", mpg: 50, electrical: true)
   end
-  it 'displays all cars in the car index' do
-    visit "/cars"
 
-    expect(page).to have_content(@accord.name)
-  end
-
-  it "shows specific dealerships cars" do
+  it "shows specific dealerships cars and attributes" do
 
     visit "/dealerships/#{@honda.id}/cars"
 
-    expect(page).to have_content(@civic.name)
     expect(page).to have_content(@accord.name)
+    expect(page).to have_content(@civic.name)
+    expect(page).to have_content(@cbr600.name)
+    expect(page).to have_content(@accord.body_style)
+    expect(page).to have_content(@civic.body_style)
+    expect(page).to have_content(@cbr600.body_style)
+    expect(page).to have_content(@accord.mpg)
+    expect(page).to have_content(@civic.mpg)
+    expect(page).to have_content(@cbr600.mpg)
+    expect(page).to have_content(@accord.electrical)
+    expect(page).to have_content(@civic.electrical)
+    expect(page).to have_content(@cbr600.electrical)
   end
 
   it "shows cars in alphabetical order" do
@@ -58,7 +63,7 @@ RSpec.describe 'car index page' do
     expect(page).to have_content("Civic")
     expect(page).to have_content("Accord")
     expect(page).to have_content("CBR600rr")
-    
+
     fill_in("Mpg threshold", with: 49)
 
     click_on("Filter Cars by MPG Threshold")

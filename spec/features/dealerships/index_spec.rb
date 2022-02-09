@@ -5,9 +5,10 @@ RSpec.describe 'Dealerhship index page' do
     @honda = Dealership.create!(name: 'Honda', city: 'Thornton', employees: 46, offer_financing: true)
     @chevy = Dealership.create!(name: 'Chevy', city: 'Thornton', employees: 46, offer_financing: true)
     @nissan = Dealership.create!(name: 'nissan', city: 'Thornton', employees: 46, offer_financing: true)
+    @accord = @honda.cars.create!(name: "Accord", body_style: "Coupe", mpg: 69, electrical: true)
   end
 
-  it 'displays all dealerships in the dealership index' do
+  it 'displays all dealerships names in the dealership index' do
     visit "/dealerships"
 
     expect(page).to have_content(@honda.name)
@@ -67,4 +68,23 @@ RSpec.describe 'Dealerhship index page' do
     expect(page).to_not have_content("Honda")
   end
 
+  it 'displays a link to the Dealerhships index on every page' do
+    visit "/"
+    expect(page).to have_link("Dealerships Index", :href =>"/dealerships")
+
+    visit "/dealerships"
+    expect(page).to have_link("Dealerships Index", :href =>"/dealerships")
+
+    visit "/dealerships/#{@honda.id}"
+    expect(page).to have_link("Dealerships Index", :href =>"/dealerships")
+
+    visit "/dealerships/#{@honda.id}/cars"
+    expect(page).to have_link("Dealerships Index", :href =>"/dealerships")
+
+    visit "/cars"
+    expect(page).to have_link("Dealerships Index", :href =>"/dealerships")
+
+    visit "/cars/#{@accord.id}"
+    expect(page).to have_link("Dealerships Index", :href =>"/dealerships")
+  end
 end

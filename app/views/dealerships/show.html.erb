@@ -12,5 +12,5 @@
 <p>City Located In: <%= @dealership.city %> </p>
 <p>Employee Count: <%= @dealership.employees %> </p>
 <p>Offers Financing: <%= @dealership.offer_financing %> </p>
-<p><%= link_to "Cars per Dealership", "/dealerships/#{@dealership.id}/cars" %></p>
+<p><%= link_to "Cars in Dealership", "/dealerships/#{@dealership.id}/cars" %></p>
 <p><%= link_to "Delete #{@dealership.name}", "/dealerships/#{@dealership.id}", method: :delete %></p>

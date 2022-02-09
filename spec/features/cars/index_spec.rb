@@ -8,6 +8,20 @@ RSpec.describe 'machine index page' do
     @crv = @dealership.cars.create!(name: "CRV", body_style: "Convertable", mpg: 89, electrical: false)
   end
 
+  it 'Displays Cars with attributes' do
+
+    visit "/cars"
+
+    expect(page).to have_content(@accord.name)
+    expect(page).to have_content(@civic.name)
+    expect(page).to have_content(@accord.body_style)
+    expect(page).to have_content(@civic.body_style)
+    expect(page).to have_content(@accord.mpg)
+    expect(page).to have_content(@civic.mpg)
+    expect(page).to have_content(@accord.electrical)
+    expect(page).to have_content(@civic.electrical)
+  end
+
   it 'displays only electrical cars' do
 
     visit "/cars"
@@ -54,6 +68,26 @@ RSpec.describe 'machine index page' do
     expect(current_path).to eq( "/cars")
 
     expect(page).to_not have_content("civic")
+  end
+
+  it 'displays a link to the Cars index on every page' do
+    visit "/"
+    expect(page).to have_link("Cars Index", :href =>"/cars")
+
+    visit "/dealerships"
+    expect(page).to have_link("Cars Index", :href =>"/cars")
+
+    visit "/dealerships/#{@dealership.id}"
+    expect(page).to have_link("Cars Index", :href =>"/cars")
+
+    visit "/dealerships/#{@dealership.id}/cars"
+    expect(page).to have_link("Cars Index", :href =>"/cars")
+
+    visit "/cars"
+    expect(page).to have_link("Cars Index", :href =>"/cars")
+
+    visit "/cars/#{@accord.id}"
+    expect(page).to have_link("Cars Index", :href =>"/cars")
   end
 
 end

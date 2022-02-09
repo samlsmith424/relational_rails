@@ -54,13 +54,19 @@ RSpec.describe 'dealership show page' do
     visit "/dealerships/#{honda.id}"
 
     expect(page).to have_content("Delete #{honda.name}")
-
     expect(page).to have_content("Honda")
 
     click_on("Delete #{honda.name}")
 
     expect(page).to_not have_content("Honda")
+    expect(current_path).to eq("/dealerships")
+  end
 
-    expect(current_path).to eq( "/dealerships")
+  it 'displays a link to the Cars index on every page' do
+    honda = Dealership.create!(name: 'Honda', city: 'Thornton', employees: 46, offer_financing: true)
+
+    visit "/dealerships/#{honda.id}"
+    expect(page).to have_link("Cars in Dealership", :href =>"/dealerships/#{honda.id}/cars")
+
   end
 end
