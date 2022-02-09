@@ -25,7 +25,5 @@ RSpec.describe Car do
       expect(dealership.cars.mpg_threshold(68)).to eq([accord, crv])
       expect(dealership.cars.mpg_threshold(68)).to_not eq([civic])
     end
-
-
   end
 end

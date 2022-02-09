@@ -8,5 +8,4 @@ class Car < ApplicationRecord
   def self.mpg_threshold(num)
     where("mpg > #{num}")
   end
-
 end
