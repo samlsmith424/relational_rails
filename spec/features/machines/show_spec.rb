@@ -32,7 +32,6 @@ RSpec.describe 'machine show page' do
 
   it 'deletes a machine' do
     visit "/machines/#{@machine.id}"
-
     expect(page).to have_content(@machine.name)
 
     click_on "Delete #{@machine.name}"

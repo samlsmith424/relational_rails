@@ -1,9 +1,6 @@
 class MachinesController < ApplicationController
   def index
     @machines = Machine.all
-    # @index = Machine.all
-    # @machines = @index.where(is_broken: true)
-    # return @machines
   end
 
   def show
