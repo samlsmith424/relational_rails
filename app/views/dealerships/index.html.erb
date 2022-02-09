@@ -4,4 +4,5 @@
 <% @dealerships.each do |dealer| %>
 <p>Name: <%= link_to dealer.name, "/dealerships/#{dealer.id}" %> <p>
 <p>Created: <%= dealer.created_at %><p>
+<p><%= link_to "Edit #{dealer.name}", "/dealerships/#{dealer.id}/edit" %></p>
 <% end  %>
