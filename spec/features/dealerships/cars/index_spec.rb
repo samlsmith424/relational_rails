@@ -52,4 +52,22 @@ RSpec.describe 'car index page' do
     expect(current_path).to eq("/cars/#{@accord.id}/edit")
   end
 
+  it 'has a form that reaturns inputs filter' do
+    visit "/dealerships/#{@honda.id}/cars"
+
+    expect(page).to have_content("Civic")
+    expect(page).to have_content("Accord")
+    expect(page).to have_content("CBR600rr")
+    
+    fill_in("Mpg threshold", with: 49)
+
+    click_on("Filter Cars by MPG Threshold")
+
+    expect(current_path).to eq("/dealerships/#{@honda.id}/cars")
+
+    expect(page).to have_content("Civic")
+    expect(page).to have_content("CBR600rr")
+    expect(page).to_not have_content("Accord")
+  end
+
 end

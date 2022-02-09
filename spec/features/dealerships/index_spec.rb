@@ -53,7 +53,7 @@ RSpec.describe 'Dealerhship index page' do
     expect(page).to have_content("Delete #{honda.name}")
   end
 
-  it "Can delete a Car" do
+  it "Can delete a Dealership" do
     visit "/dealerships"
 
     expect(page).to have_content("Delete #{@honda.name}")
