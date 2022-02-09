@@ -43,6 +43,28 @@ RSpec.describe 'Dealerhship index page' do
     expect(current_path).to eq("/dealerships/#{@nissan.id}/edit")
   end
 
+  it "Has a delete button" do
+    honda = Dealership.create!(name: 'Honda', city: 'Thornton', employees: 46, offer_financing: true)
+    nissan = Dealership.create!(name: 'Nissan', city: 'Riverside', employees: 77, offer_financing: false)
+    toyota = Dealership.create!(name: 'Toyota', city: 'Denver', employees: 38, offer_financing: false)
 
+    visit "/dealerships"
+
+    expect(page).to have_content("Delete #{honda.name}")
+  end
+
+  it "Can delete a Car" do
+    visit "/dealerships"
+
+    expect(page).to have_content("Delete #{@honda.name}")
+
+    expect(page).to have_content("Honda")
+
+    click_on("Delete #{@honda.name}")
+
+    expect(current_path).to eq( "/dealerships")
+
+    expect(page).to_not have_content("Honda")
+  end
 
 end

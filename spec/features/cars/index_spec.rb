@@ -35,4 +35,25 @@ RSpec.describe 'machine index page' do
     expect(current_path).to eq("/cars/#{@accord.id}/edit")
   end
 
+  it "Has a delete button" do
+
+    visit "/cars"
+
+    expect(page).to have_content("Delete #{@civic.name}")
+  end
+
+  it "Can delete a Car" do
+    visit "/cars"
+
+    expect(page).to have_content("Delete #{@civic.name}")
+
+    expect(page).to have_content("civic")
+
+    click_on("Delete #{@civic.name}")
+
+    expect(current_path).to eq( "/cars")
+
+    expect(page).to_not have_content("civic")
+  end
+
 end

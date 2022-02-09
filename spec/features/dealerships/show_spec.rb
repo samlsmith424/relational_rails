@@ -35,4 +35,32 @@ RSpec.describe 'dealership show page' do
     expect(page).to have_content(honda.offer_financing)
     expect(page).to_not have_content(nissan.offer_financing)
   end
+
+  it "Has a delete button" do
+    honda = Dealership.create!(name: 'Honda', city: 'Thornton', employees: 46, offer_financing: true)
+    nissan = Dealership.create!(name: 'Nissan', city: 'Riverside', employees: 77, offer_financing: false)
+    toyota = Dealership.create!(name: 'Toyota', city: 'Denver', employees: 38, offer_financing: false)
+
+    visit "/dealerships/#{honda.id}"
+
+    expect(page).to have_content("Delete #{honda.name}")
+  end
+
+  it "Can delete a Dealership" do
+    honda = Dealership.create!(name: 'Honda', city: 'Thornton', employees: 46, offer_financing: true)
+    nissan = Dealership.create!(name: 'Nissan', city: 'Riverside', employees: 77, offer_financing: false)
+    toyota = Dealership.create!(name: 'Toyota', city: 'Denver', employees: 38, offer_financing: false)
+
+    visit "/dealerships/#{honda.id}"
+
+    expect(page).to have_content("Delete #{honda.name}")
+
+    expect(page).to have_content("Honda")
+
+    click_on("Delete #{honda.name}")
+
+    expect(page).to_not have_content("Honda")
+
+    expect(current_path).to eq( "/dealerships")
+  end
 end
