@@ -7,3 +7,4 @@
 <p>Body Style: <%= @car.body_style %> </p>
 <p>MPG: <%= @car.mpg %> </p>
 <p>Electrical: <%= @car.electrical %> </p>
+<p><%= link_to "Delete #{@car.name}", "/cars/#{@car.id}", method: :delete %></p>
