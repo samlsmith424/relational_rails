@@ -24,6 +24,20 @@ RSpec.describe 'gym index page' do
     expect(@gym_1.name).to_not appear_before(@gym_2.name)
   end
 
+  it 'displays an edit button for each gym' do
+    visit "/gyms"
+
+    expect(page).to have_content("Edit #{@gym_1.name}")
+  end
+
+  it 'can edit each gym' do
+    visit "/gyms"
+
+    click_on "Edit #{@gym_1.name}"
+
+    expect(current_path).to eq("/gyms/#{@gym_1.id}/edit")
+  end
+
   # it 'can see a count of machines associated with each gym' do
   #   machine = @gym_1.machines.create!(name: "Leg Press", section: "Resistance Machines", recommended_sets: 5, recommended_reps: 10, is_broken: true)
   #   machine_2 = @gym_1.machines.create!(name: "Elliptical", section: "Cardio", recommended_sets: 1, recommended_reps: 1, is_broken: true)
