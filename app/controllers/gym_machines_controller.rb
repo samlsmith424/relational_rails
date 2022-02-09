@@ -4,6 +4,8 @@ class GymMachinesController < ApplicationController
     @machines = @gym.machines
     if params[:sort_by] == "name"
       @machines = @machines.order(:name)
+    elsif params[:rep_threshold]
+      @machines = @machines.rep_threshold(params[:rep_threshold])  
     end
   end
 

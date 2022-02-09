@@ -44,4 +44,17 @@ RSpec.describe 'Machines at each gym' do
     expect(current_path).to eq("/machines/#{@machine.id}/edit")
   end
 
+  it 'has a form that returns records according to input threshold' do
+    visit "/gyms/#{@gym.id}/machines"
+
+    expect(page).to have_content("Leg Press")
+    expect(page).to have_content("Elliptical")
+
+    fill_in('Rep threshold', with: 4)
+    click_on('Filter Machines by Rep Threshold')
+    
+    expect(current_path).to eq("/gyms/#{@gym.id}/machines")
+    expect(page).to have_content("Leg Press")
+    expect(page).to_not have_content("Elliptical")
+  end
 end

@@ -8,3 +8,9 @@
   <p><%= link_to "Edit #{machine.name}", "/machines/#{machine.id}/edit" %></p>
   <p>---------------------</p>
 <% end %>
+
+<%= form_with url: "/gyms/#{@gym.id}/machines", method: :get, local: true do |form| %>
+<%= form.label :rep_threshold %>
+<%= form.number_field :rep_threshold, in: 0..100 %>
+<%= form.submit "Filter Machines by Rep Threshold" %>
+<% end %>
